@@ -4,7 +4,7 @@
   <groupId>com.garmin.fit</groupId>
   <artifactId>fit</artifactId>
   <packaging>jar</packaging>
-  <version>20.14.00</version>
+  <version>20.74.01</version>
   <name>fit</name>
   <url>http://maven.apache.org</url>
   <properties>
