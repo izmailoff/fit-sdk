@@ -1,3 +1,6 @@
+# Build Status
+[![Build Status](https://travis-ci.org/izmailoff/fit-sdk.png?branch=master)](https://travis-ci.org/izmailoff/fit-sdk)
+
 # fit-sdk
 A copy of Garmin FIT SDK Java implementation with build script.
 
