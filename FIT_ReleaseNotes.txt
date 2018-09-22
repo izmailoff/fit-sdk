@@ -1,0 +1,297 @@
+FIT SDK External Release Notes
+20.14.00
+- Profile Updates
+- Bug fix related to developer data decode in C#
+- RAM Files in C SDK now have Correct Protocol Version
+- Fix an issue that could generate 0 length arrays in RAM Files in C SDK
+
+20.10.01
+- Profile Updates
+- Bug Fixes in C++ Developer Data Encode
+- FitGen can now run in mono
+- Added a Get String Method to types in Java SDK
+
+20.08.00
+- Profile Updates
+- Added an Is[Field]Valid function to C++ Message Classes
+- Added Interface for accessing Developer Fields marked as override
+- Reduce the memory foot print of C# SDK by lazy loading profile messages
+
+20.06.00
+- Profile Updates
+- Bug Fixes in handling of scale and offset in developer data
+
+20.03.00
+- Profile Updates
+- Bug Fixes to types of generated fields with Components in C#/Java/C++
+- Bug fixes in CSV-Fit functionality of FitToCsv Tool
+- Added 3-D Sensor Adjustment plugin to Java/C++/C#
+- Enable Warnings as errors in XCode Projects
+
+20.02.00
+-Profile Updates
+-Added Flag to FitGen to disable config.csv rewrite
+-Add the Ability to select FIT protocol version in CSV to FIT funtionality
+-Fix CPP_INCLUDE_C Handling
+-Fixed a bug with scale and offset for expanded subfields in Java and C++
+
+20.00.00
+-Profile changes
+-Added FIT 2.0 Features
+  -Developer Data
+  -64-bit integer types
+-Added Objective-C iOS universal library
+-C++ decode memory and speed optimizations
+-Access to the Profile described type of fields in C++/C#/Java SDKs
+
+16.74
+-Fixed Component Expansion issues in C#.
+-Re-implemented how scaling was done within C# SDK to reduce number of exceptions being thrown.
+
+16.73
+-Fixed C# decoding issues for poorly formed files to allow the file to be decoded as much as possible. There
+were some cases where some bad files have been recorded, and decode fine with other FITSDK's.
+
+16.70
+-Profile changes (new manufacturer ids)
+-Added support for Checksumming buffers larger than 256 bytes.
+-Removed default generation of _data.csv files from FitCSVTool and added a new FitToCSV-data.bat
+file to generate _data.csv files.
+-Fixed some Exceptions in FitCSVTool that would previously cause bad files to process correctly and silently fail.
+-Fixed unhandled Exceptions in C# SDK causing previously valid files to no longer process.
+
+16.60
+-Profile changes (new manufacturer ids)
+-Added Mac Examples and Mac Static Library
+-Changed Java File Encoder to use Checked Output Stream for added performance.
+-Fixed a bug in the C# SDK when re-encoding messages with unknown fields.
+-Migrated project files to VS2013 and changed project settings to warning level 4 equivalent.
+-Fixed numerous warnings in all SDK's.
+-Deprecated some functions as parameters are not used or no longer needed.
+-Updated all C# projects to .NET 4.6
+-Updated C++ projects to C++11
+-Fixed handling of invalid float and double values in all SDK's
+-C# DLL now regenerates when class-lib project is available.
+-Fixed issue caused by CheckIntegrity in C++ SDK.
+
+16.50
+-Profile changes (new manufacturer ids)
+-Java SDK Processing performance tweaks (decode functionality)
+-Fixed bug in C# SDK causing scaled values to not properly be casted to floats
+-FitGen now compatible with Mac Excel csv format
+
+16.40
+-Profile changes (new manufacturer ids)
+-Fixed Component Expansion issue in CPP when using signed components
+-Added HRToRecordPlugin to fit.jar
+-Updated internal SDK List to Dictionary for better performance (Profile.cs)
+-Cleaned up parsing of scale and units from Profile spreadsheet (No longer silently passing exceptions)
+-Fixed alternate message definitions in Generated c-code
+-Fixed Cpp read error when using isFit()
+-Added some configuration options to FitGen to be able to specify config.csv, and output directories
+-Fixed bug in CS SDK when writing a mesg and re-using a message definition.
+-Various bug fixes and improvements from 16.30 (Recommend Upgrading)
+
+16.30
+-Added new Plugin Architecture with Heart Rate Plugin example
+--Allows parsing of Garmin HRM-Tri stored heart rate data
+-Added accumulated fields support for C++, and C#
+-Added support for chained FIT files
+-Made public ant_tx, ant_rx, and ant_channel_id messages
+-Added new option to CSVTool to hide unknown data and output how many unknown messages were encountered
+-Profile changes (new manufacturer ids)
+-Made most jar file examples depend on fit.jar (creating a smaller zip archive).
+--Now when using examples the fit.jar must be in the same directory as the example.
+
+16.20
+-Profile changes (new manufacturer ids)
+
+16.10
+-String types in the C# SDK can now be get and set as Strings as well as byte arrays
+-Fixed an issue where the C# SDK would sometimes throw an exception when decoding invalid scaled values
+-Added product_name to file_id to allow for encoding of custom product names into FIT files
+-CSVTool now properly deals with embedded commas, double quotes, and new line characters
+-Added option in Java SDK to preserve invalid fields encountered in messages (disabled by default)
+-Added options for CSVTool to output invalid field values to CSV files, or to convert invalid fields to empty cells (using flags -s and -se respectively)
+-Added VirbX messages and types (camera_event_type, three_d_sensor_calibration, video_frame, etc.)
+-Add new sport and sub_sport profile entries
+
+16.00
+-Use STD INT define by default in C++ SDK when compiled for APPLE
+-Improve error mesg when attempting to decode non .FIT files
+-Update garmin_product enum
+-Add support for MesgDefinitionListener interface to Java MesgBroadcaster
+-Add means to unsubscribe C++ listeners
+-Improve java encode performance by removing unnecessary call to File.length()
+-CSVTool now generates UTF-8 output.  Fix issue where CSVTool converts large numeric strings to scientific notation
+
+15.21
+-Add activity_id_string to segment_leaderboard_entry
+-Add leader_activity_id_string to segment file
+
+15.20
+-Profile updates (segment_leaderboard_type and segment_selection_type
+-Fixed bug where float32 and float64 field sizes were being set incorrectly in C and Java SDK
+-Add means to unsubscribe Java listeners
+-Add FIT timestamp functions to C++
+-Add fractional time support to C#, set kind member in GetDateTime()
+-Java tool build errors are now output to the Fitgen console
+-Fixed incorrect file types in some example files (workout, weight scale)
+
+15.10
+-Libc compatibility change to C++ decoder
+-Profile updates to manufacturer_id
+-Java tools report SDK version
+-Update Profile.xls to .xlsx and remove unneeded hidden sheets
+-Add BufferedMesgBroadcaster/Plugin framework to C++ SDK
+-Fit.dll reports SDK version in properties
+-Update C# SDK to support .NET framework 4.0 and on
+
+15.00
+-Profile updates (garmin_product, manufacturer, bike_profile mesg, event mesg, segments)
+-Tidied up EXAMPLE config
+-Removed unnecessary default scale and offset values from profile
+
+14.20
+-Profile updates (LEV additions)
+-Fixed regression in Java component expansion (multiple components with the same destination field again generate (accumulated) array elements in the destination)
+
+
+14.10
+-Fix java fractional timestamp issue that could cause loss of precision
+-Fix decode support for incomplete streams
+-Trimmed default C "EXAMPLE" product configuration so no messages are too large
+-Added example monitoring files
+-Profile updates (mftr ids, garmin_product enum)
+
+14.00
+-Added Cycling Dynamics
+-Added support for 'enhanced' speed and altitude
+-Added support for multilevel component expansion
+-Updated code examples to demonstrate local_id usage0
+-Other profile Changes
+
+13.20
+-Added fractional time component to Java timestamp
+-Reserved file types 247-254 for manufacturer defined file types
+-Profile Changes
+
+13.10
+-Fix bug in C GetFileMesgOffset()
+-Profile changes
+
+13.00
+-Profile changes
+
+12.20
+-Updated the CSV files in examples directory to agree with their corresponding FIT file
+
+12.10
+-Profile changes
+
+12.00
+-Profile changes
+-Monitoring Reader bugfixes
+
+11.20
+-Profile changes
+-New support for monitoring files (monitoring mesg fields, monitoring reader support class and
+monitoring a&b file documentation)
+
+11.00
+-Profile changes
+-Added Gear Indication support
+-Add support for components in subfields (Java, C#, C++)
+
+10.20
+-Profile changes
+-Added command line option so FitGen may report its version without generating code
+
+10.10
+-Profile changes
+-Updated C# Decode example to use access functions rather than directly use internal members
+-Fixed C generator issue when using file structures without padding
+
+10.02
+-Profile changes
+
+10.00
+-Updated FIT Protocol Doc
+-Added 'memo_glob' for encoding large utf-8 blocks.  See new AN18 for details.
+-Profile changes
+
+9.20
+-Profile Changes
+-Allow setting subfields if reference field is not already set
+-Renamed/reworked device_info.device_type field to better refect its intended usage
+
+9.11
+-Profile Changes
+
+9.10
+-Fixed issue with setting string fields in C#
+-Fixed issue in C# where IsFit() and CheckIntegrity() were throwing exceptions rather than returning false
+-Added MO2 Profile Fields
+-Profile Changes
+
+9.02
+-Fixed an issue where resource files were not being generated when a custom types.csv or mesgs.csv is used
+
+9.00
+-Profile Changes
+
+8.20
+-Profile Changes
+
+8.10
+-Profile Changes
+-Fixed issue where Java decoder was not preserving the type of unknown fields
+
+8.00
+-Add check that mesg_index is valid in Fit_GetFileMesgOffset()
+-Profile Changes
+
+7.10
+-Profile Changes
+
+7.01
+-Fixed truncation issue with some scaled fields in Java/C++
+-Removed record.cadence reference to cadence256
+
+7.00
+-Added missing monitoring fields described in File Types Doc
+-Other profile changes
+-Accumulated fields improvements (Java):
+   Multiple compression fields can now accumulate into the same destination field
+   Explicitly logging the accumulated field updates the accumulated value
+-Fixed FitGen crash if custom types/mesgs files are locked
+-Add FIT ProtocolVersion compatability check to C# decoder
+
+6.20
+-Profile Changes
+-Fixed discrepancy between binary and ascii in example activity file
+
+
+6.10
+-Profile Changes
+-Fix Encoding of ProtocolVersion under C#
+-Rearranged Java mesg templates to avoid 64k static size boundary
+-Fixed issue where software and slave_device messages were incorrectly merged
+
+
+6.00
+-Documentation Update
+-Profile Changes
+
+5.20
+-Expose Java getByValue method
+-Revise CSV tool message filtering interface
+
+5.10
+-Profile Changes
+-Increase default value for FIT_LOCAL_MESGS (affects C demo apps)
+
+5.00
+-Added C# SDK (Library + Examples)
+-Profile Changes
+-Fixed issue where Profile enum elements starting with a digit wouldn't generate correctly
